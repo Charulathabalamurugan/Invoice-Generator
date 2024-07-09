@@ -28,7 +28,7 @@ function updateAmount(element) {
     const sgst = parseFloat(row.cells[3].children[0].value);
     const cgst = parseFloat(row.cells[4].children[0].value);
     const cess = parseFloat(row.cells[5].children[0].value);
-    const amount = qty * rate + (qty*sgst) + (qty*cgst) +(qty*cess);
+    const amount = qty * rate + (qty * rate * sgst / 100) + (qty * rate * cgst / 100) + (qty * rate * cess / 100);
     row.cells[6].innerText = amount.toFixed(2);
     updateTotal();
 }
